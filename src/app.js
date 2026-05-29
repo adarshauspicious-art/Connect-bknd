@@ -4,13 +4,13 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 dotenv.config();
-connectDB();
 
 const app=express();
 
 // middlewares
 app.use(cors());
 app.use(express.json());
+await connectDB();
 
 app.use("/api/auth", authRoutes);
 // test routes
